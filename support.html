@@ -1,0 +1,380 @@
+<!doctype html>
+<title>PINBALL Support</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --text: #2b2a28;
+    --subtle: #6b6864;
+    --accent: #4b484b;
+    --on-accent: #f6f5f3;
+    --line: #e6e3dd;
+    --line-strong: #cfcbc3;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413;
+      --surface: #1e1e1d;
+      --text: #ece9e4;
+      --subtle: #9c9891;
+      --accent: #f2f2f2;
+      --on-accent: #232222;
+      --line: #333230;
+      --line-strong: #47443f;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #141413;
+    --surface: #1e1e1d;
+    --text: #ece9e4;
+    --subtle: #9c9891;
+    --accent: #f2f2f2;
+    --on-accent: #232222;
+    --line: #333230;
+    --line-strong: #47443f;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg);
+  }
+
+  body {
+    color: var(--text);
+    font-family: "Karla", ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    padding-inline: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  h1, h2 {
+    font-family: "Fraunces", ui-serif, "Hiragino Mincho ProN", "Noto Serif JP", serif;
+    font-weight: 500;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: var(--text); text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: currentColor; }
+
+  .page {
+    max-width: 700px;
+    margin-inline: auto;
+    padding-block: 56px 96px;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mark-glyph {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    flex: none;
+  }
+
+  .mark-name {
+    font-family: "Fraunces", serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .lang-toggle button {
+    font: inherit;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    background: transparent;
+    color: var(--subtle);
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .lang-toggle button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .titleblock h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0 0 10px;
+  }
+
+  .meta {
+    color: var(--subtle);
+    font-size: 14px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .meta span::before {
+    content: "";
+  }
+
+  section.policy { margin-top: 40px; }
+
+  section.policy section {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 24px;
+  }
+
+  section.policy section:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 40px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  h2 .num {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--subtle);
+    letter-spacing: 0.02em;
+  }
+
+  section.policy p { margin: 0 0 14px; }
+  section.policy p:last-child { margin-bottom: 0; }
+
+  section.policy ul {
+    margin: 0 0 14px;
+    padding-left: 1.15em;
+  }
+
+  section.policy li { margin-bottom: 8px; }
+  section.policy li:last-child { margin-bottom: 0; }
+  section.policy li strong { font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 0 0 14px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  footer.pagefoot {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    color: var(--subtle);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px) {
+    .page { padding-block: 40px 72px; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="mark">
+      <img class="mark-glyph" src="icon.png" alt="">
+      <span class="mark-name">PINBALL</span>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / 言語">
+      <button type="button" id="btn-ja" aria-pressed="true">日本語</button>
+      <button type="button" id="btn-en" aria-pressed="false">English</button>
+    </div>
+  </header>
+
+  <!-- ============================= 日本語 ============================= -->
+  <div id="lang-ja">
+
+    <div class="titleblock">
+      <h1>サポート</h1>
+      <div class="meta">
+        <span>PINBALL（iOS）についてのお問い合わせ・よくある質問</span>
+      </div>
+    </div>
+
+    <section class="policy">
+
+      <section id="ja-contact">
+        <h2><span class="num">01</span>お問い合わせ</h2>
+        <p>アプリの不具合報告・ご要望・その他ご質問は、下記のメールアドレスまでご連絡ください。内容を確認し、順次対応いたします。</p>
+        <p><a href="mailto:app.contact001@gmail.com">app.contact001@gmail.com</a></p>
+      </section>
+
+      <section id="ja-howto">
+        <h2><span class="num">02</span>遊び方</h2>
+        <p>持ち時間は30秒です。ボールを発射したときから時間が減り始め、時間内にどれだけ得点を取れるかを競います。画面の左半分を押すと左、右半分を押すと右のフリッパーが動きます。右端の発射エリアを下へスワイプして離すと、ボールを発射できます。</p>
+        <p>アプリの「設定」→「チュートリアルを見る」から、いつでも操作の説明をもう一度見られます。</p>
+      </section>
+
+      <section id="ja-records">
+        <h2><span class="num">03</span>記録が消えた</h2>
+        <p>記録は、得点の高い上位10回分だけを保存しています。それより低い得点は保存されません。</p>
+        <p>記録はお使いの端末内にのみ保存されているため、アプリを削除すると消えてしまいます。機種変更のときに引き継ぐこともできません。Game Centerのランキングに送られたスコアは、Game Centerに残ります。</p>
+      </section>
+
+      <section id="ja-ranking">
+        <h2><span class="num">04</span>ランキングに表示されない</h2>
+        <p>オンラインランキングは、Apple社の「Game Center」を使っています。iPhoneの「設定」→「Game Center」でサインインしていることを確認してください。サインインしていない間にプレイしたスコアは、ランキングに送られません。</p>
+      </section>
+
+      <section id="ja-vibration">
+        <h2><span class="num">05</span>振動を止めたい</h2>
+        <p>アプリの「設定」→「振動」をオフにすると、バンパーやドームにボールが当たったときの振動が止まります。</p>
+      </section>
+
+      <section id="ja-ads">
+        <h2><span class="num">06</span>広告について</h2>
+        <p>本アプリは、無料でご利用いただくために、2回目以降のプレイを始める前に広告を表示しています。広告の取り扱いについては、<a href="index.html#ja-ads">プライバシーポリシーの「広告について」</a>をご覧ください。</p>
+      </section>
+
+    </section>
+
+    <footer class="pagefoot">
+      <span>© 2026 PINBALL</span>
+      <span><a href="index.html">プライバシーポリシー</a> ・ app.contact001@gmail.com</span>
+    </footer>
+
+  </div>
+
+  <!-- ============================= English ============================= -->
+  <div id="lang-en" hidden>
+
+    <div class="titleblock">
+      <h1>Support</h1>
+      <div class="meta">
+        <span>Contact and FAQ for PINBALL (iOS)</span>
+      </div>
+    </div>
+
+    <section class="policy">
+
+      <section id="en-contact">
+        <h2><span class="num">01</span>Contact</h2>
+        <p>For bug reports, requests, or any other questions, please email us at the address below. We will review your message and reply as soon as we can.</p>
+        <p><a href="mailto:app.contact001@gmail.com">app.contact001@gmail.com</a></p>
+      </section>
+
+      <section id="en-howto">
+        <h2><span class="num">02</span>How to Play</h2>
+        <p>You have 30 seconds. The clock starts when you launch the ball, and the goal is to score as many points as you can before time runs out. Press the left half of the screen to move the left flipper and the right half to move the right flipper. Swipe down on the launch area at the right edge and let go to launch the ball.</p>
+        <p>You can see the instructions again at any time in the app under Settings &rarr; Show Tutorial.</p>
+      </section>
+
+      <section id="en-records">
+        <h2><span class="num">03</span>My records disappeared</h2>
+        <p>The app keeps only your top 10 scores. Lower scores are not saved.</p>
+        <p>Records are stored only on your device, so they are deleted if you delete the app, and they cannot be moved to a new device. Scores sent to the Game Center leaderboard remain in Game Center.</p>
+      </section>
+
+      <section id="en-ranking">
+        <h2><span class="num">04</span>My score is not on the leaderboard</h2>
+        <p>The online leaderboard uses Apple's Game Center. Please make sure you are signed in under Game Center in the iPhone Settings app. Scores from games played while signed out are not sent to the leaderboard.</p>
+      </section>
+
+      <section id="en-vibration">
+        <h2><span class="num">05</span>Turning off vibration</h2>
+        <p>Turn off Settings &rarr; Vibration in the app to stop the vibration when the ball hits a bumper or the dome.</p>
+      </section>
+
+      <section id="en-ads">
+        <h2><span class="num">06</span>Advertising</h2>
+        <p>To keep the app free, it shows an ad before your second and later games. For how ads are handled, please see <a href="index.html#en-ads">"Advertising" in the Privacy Policy</a>.</p>
+      </section>
+
+    </section>
+
+    <footer class="pagefoot">
+      <span>© 2026 PINBALL</span>
+      <span><a href="index.html">Privacy Policy</a> ・ app.contact001@gmail.com</span>
+    </footer>
+
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var ja = document.getElementById('lang-ja');
+    var en = document.getElementById('lang-en');
+    var btnJa = document.getElementById('btn-ja');
+    var btnEn = document.getElementById('btn-en');
+
+    function show(lang) {
+      var isJa = lang === 'ja';
+      ja.hidden = !isJa;
+      en.hidden = isJa;
+      btnJa.setAttribute('aria-pressed', String(isJa));
+      btnEn.setAttribute('aria-pressed', String(!isJa));
+      try { localStorage.setItem('foldnote-privacy-lang', lang); } catch (e) {}
+    }
+
+    btnJa.addEventListener('click', function () { show('ja'); });
+    btnEn.addEventListener('click', function () { show('en'); });
+
+    var saved = null;
+    try { saved = localStorage.getItem('foldnote-privacy-lang'); } catch (e) {}
+
+    if (saved === 'en') {
+      show('en');
+    } else if (!saved && /^en/i.test(navigator.language || '')) {
+      show('en');
+    }
+  })();
+</script>

@@ -1,0 +1,414 @@
+<!doctype html>
+<title>PINBALL Privacy Policy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --text: #2b2a28;
+    --subtle: #6b6864;
+    --accent: #4b484b;
+    --on-accent: #f6f5f3;
+    --line: #e6e3dd;
+    --line-strong: #cfcbc3;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413;
+      --surface: #1e1e1d;
+      --text: #ece9e4;
+      --subtle: #9c9891;
+      --accent: #f2f2f2;
+      --on-accent: #232222;
+      --line: #333230;
+      --line-strong: #47443f;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #141413;
+    --surface: #1e1e1d;
+    --text: #ece9e4;
+    --subtle: #9c9891;
+    --accent: #f2f2f2;
+    --on-accent: #232222;
+    --line: #333230;
+    --line-strong: #47443f;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg);
+  }
+
+  body {
+    color: var(--text);
+    font-family: "Karla", ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    padding-inline: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  h1, h2 {
+    font-family: "Fraunces", ui-serif, "Hiragino Mincho ProN", "Noto Serif JP", serif;
+    font-weight: 500;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: var(--text); text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: currentColor; }
+
+  .page {
+    max-width: 700px;
+    margin-inline: auto;
+    padding-block: 56px 96px;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mark-glyph {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    flex: none;
+  }
+
+  .mark-name {
+    font-family: "Fraunces", serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .lang-toggle button {
+    font: inherit;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    background: transparent;
+    color: var(--subtle);
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .lang-toggle button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .titleblock h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0 0 10px;
+  }
+
+  .meta {
+    color: var(--subtle);
+    font-size: 14px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .meta span::before {
+    content: "";
+  }
+
+  section.policy { margin-top: 40px; }
+
+  section.policy section {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 24px;
+  }
+
+  section.policy section:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 40px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  h2 .num {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--subtle);
+    letter-spacing: 0.02em;
+  }
+
+  section.policy p { margin: 0 0 14px; }
+  section.policy p:last-child { margin-bottom: 0; }
+
+  section.policy ul {
+    margin: 0 0 14px;
+    padding-left: 1.15em;
+  }
+
+  section.policy li { margin-bottom: 8px; }
+  section.policy li:last-child { margin-bottom: 0; }
+  section.policy li strong { font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 0 0 14px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  footer.pagefoot {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    color: var(--subtle);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px) {
+    .page { padding-block: 40px 72px; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="mark">
+      <img class="mark-glyph" src="icon.png" alt="">
+      <span class="mark-name">PINBALL</span>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / 言語">
+      <button type="button" id="btn-ja" aria-pressed="true">日本語</button>
+      <button type="button" id="btn-en" aria-pressed="false">English</button>
+    </div>
+  </header>
+
+  <!-- ============================= 日本語 ============================= -->
+  <div id="lang-ja">
+
+    <div class="titleblock">
+      <h1>プライバシーポリシー</h1>
+      <div class="meta">
+        <span>最終更新日: 2026年10月14日</span>
+      </div>
+    </div>
+
+    <section class="policy">
+
+      <section id="ja-collect">
+        <h2><span class="num">01</span>収集する情報</h2>
+        <p>本アプリ自体は、氏名・メールアドレス・位置情報などの個人情報を収集しません。アカウント登録も不要です。ただし、広告の表示とオンラインランキングのために外部のサービスを利用しており、その中で端末に関する技術的な情報やスコアが扱われることがあります。詳しくは「広告について」「オンラインランキング（Game Center）について」をご覧ください。</p>
+      </section>
+
+      <section id="ja-ads">
+        <h2><span class="num">02</span>広告について</h2>
+        <p>本アプリは、無料でご利用いただくために、Google社が提供する広告配信サービス「Google AdMob」を使用して、2回目以降のプレイを始める前に動画広告を表示しています。AdMobは、広告の配信・不正防止・利用状況の把握のために、端末の識別情報、おおよその位置情報、広告の表示・タップの履歴などの技術的な情報を取得することがあります。</p>
+        <p>初めて起動したとき、Apple社の「App Tracking Transparency」により、他社のアプリやWebサイトをまたいだトラッキング（追跡）を許可するかをお尋ねします。許可された場合は、あなたの興味・関心に合わせた広告が表示されることがあります。許可されなかった場合は、興味・関心に基づかない一般的な広告が表示されます。この設定は、iPhoneの「設定」→「プライバシーとセキュリティ」→「トラッキング」からいつでも変更できます。</p>
+        <p>EUなど、法令により同意が必要な地域では、広告用のデータの扱いについて同意をお尋ねする画面（Google社の同意管理の仕組み）を表示します。同意の内容は、アプリの「設定」→「広告のプライバシー設定」からいつでも見直せます。</p>
+        <div class="card">
+          <p>AdMobによる情報の取り扱いの詳細は、Google社のプライバシーポリシーをご確認ください。<br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+        </div>
+      </section>
+
+      <section id="ja-gamecenter">
+        <h2><span class="num">03</span>オンラインランキング（Game Center）について</h2>
+        <p>Apple社の「Game Center」にサインインしている場合、プレイが終わるたびに、そのスコアをGame Centerのランキングに送信します。ランキングでは、スコアがGame Centerのニックネームとともに、ほかのプレイヤーにも表示されます。</p>
+        <p>Game Centerへのサインインや、ランキングに表示される情報の取り扱いは、Apple社が行います。開発者が、あなたのApple IDやメールアドレスを知ることはありません。Game Centerを使いたくない場合は、iPhoneの「設定」→「Game Center」からサインアウトしてください。</p>
+        <div class="card">
+          <p>Apple社によるデータの取り扱いの詳細は、Apple社のプライバシーポリシーをご確認ください。<br><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></p>
+        </div>
+      </section>
+
+      <section id="ja-storage">
+        <h2><span class="num">04</span>端末内に保存されるデータ</h2>
+        <p>次の情報は、お使いの端末内にのみ保存されます。インターネットを介した開発者のサーバーへの送信は行われず、開発者を含め、ユーザー以外の誰も見ることはできません。</p>
+        <ul>
+          <li><strong>記録</strong> — 得点の高い上位10回分の、得点とプレイした日時</li>
+          <li><strong>設定</strong> — 振動のオン・オフ、チュートリアルを見たかどうか</li>
+        </ul>
+        <p>これらのデータは、アプリの「設定」→「記録を消去」で消せます。アプリを削除すると、すべて消去されます。</p>
+      </section>
+
+      <section id="ja-children">
+        <h2><span class="num">05</span>子どものプライバシー</h2>
+        <p>本アプリ自体は個人情報を収集しません。ただし、広告表示のためにGoogle AdMobを使用しているため、お子様が利用される場合は、保護者の方が本ポリシー（特に「広告について」）の内容を事前にご確認いただくことをおすすめします。本アプリは子どもを主な対象として作られたものではありません。</p>
+      </section>
+
+      <section id="ja-changes">
+        <h2><span class="num">06</span>ポリシーの変更</h2>
+        <p>本ポリシーの内容は、法令の変更やアプリの機能追加に応じて更新されることがあります。重要な変更がある場合は、このページ上の「最終更新日」を更新してお知らせします。</p>
+      </section>
+
+      <section id="ja-contact">
+        <h2><span class="num">07</span>お問い合わせ</h2>
+        <p>本ポリシーについてご質問がある場合は、下記までご連絡ください。</p>
+        <p><a href="mailto:app.contact001@gmail.com">app.contact001@gmail.com</a></p>
+      </section>
+
+    </section>
+
+    <footer class="pagefoot">
+      <span>© 2026 PINBALL</span>
+      <span><a href="support.html">サポート</a> ・ app.contact001@gmail.com</span>
+    </footer>
+
+  </div>
+
+  <!-- ============================= English ============================= -->
+  <div id="lang-en" hidden>
+
+    <div class="titleblock">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        <span>Last updated: October 14, 2026</span>
+      </div>
+    </div>
+
+    <section class="policy">
+
+      <section id="en-collect">
+        <h2><span class="num">01</span>Information We Collect</h2>
+        <p>The app itself does not collect personal information such as your name, email address, or location, and no account is required. However, the app uses outside services to show ads and to run an online leaderboard, and these may handle technical information about your device and your scores. See "Advertising" and "Online Leaderboard (Game Center)" below for details.</p>
+      </section>
+
+      <section id="en-ads">
+        <h2><span class="num">02</span>Advertising</h2>
+        <p>To keep the app free, it uses Google AdMob, an advertising service provided by Google, to show a video ad before your second and later games. AdMob may collect technical information such as device identifiers, approximate location, and the history of ads shown and tapped, in order to deliver ads, prevent fraud, and measure usage.</p>
+        <p>The first time you open the app, Apple's App Tracking Transparency asks whether you allow tracking across other companies' apps and websites. If you allow it, you may see ads based on your interests. If you do not, you will see general ads that are not based on your interests. You can change this at any time in the iPhone Settings app under Privacy &amp; Security &rarr; Tracking.</p>
+        <p>In regions where consent is required by law, such as the EU, the app shows a screen (Google's consent management tool) asking for your consent to how ad data is used. You can review your choices at any time in the app under Settings &rarr; Ad Privacy Settings.</p>
+        <div class="card">
+          <p>For details on how AdMob handles information, please see Google's Privacy Policy.<br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+        </div>
+      </section>
+
+      <section id="en-gamecenter">
+        <h2><span class="num">03</span>Online Leaderboard (Game Center)</h2>
+        <p>If you are signed in to Apple's Game Center, the app sends your score to the Game Center leaderboard each time a game ends. On the leaderboard, your score is shown to other players together with your Game Center nickname.</p>
+        <p>Signing in to Game Center and the information shown on the leaderboard are handled by Apple. The developer never learns your Apple ID or email address. If you do not want to use Game Center, sign out in the iPhone Settings app under Game Center.</p>
+        <div class="card">
+          <p>For details on how Apple handles data, please see Apple's Privacy Policy.<br><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></p>
+        </div>
+      </section>
+
+      <section id="en-storage">
+        <h2><span class="num">04</span>Data Stored on Your Device</h2>
+        <p>The following information is stored only on your device. It is never sent to the developer's servers over the internet, and no one but you, including the developer, can see it.</p>
+        <ul>
+          <li><strong>Records</strong> &mdash; the score and date of your top 10 games</li>
+          <li><strong>Settings</strong> &mdash; whether vibration is on, and whether you have seen the tutorial</li>
+        </ul>
+        <p>You can delete this data in the app under Settings &rarr; Clear Records. Deleting the app removes all of it.</p>
+      </section>
+
+      <section id="en-children">
+        <h2><span class="num">05</span>Children's Privacy</h2>
+        <p>The app itself does not collect personal information. However, because it uses Google AdMob to show ads, we recommend that parents review this policy (especially "Advertising") before a child uses the app. The app is not designed primarily for children.</p>
+      </section>
+
+      <section id="en-changes">
+        <h2><span class="num">06</span>Changes to This Policy</h2>
+        <p>This policy may be updated in response to changes in law or new app features. If there is an important change, we will update the "Last updated" date on this page.</p>
+      </section>
+
+      <section id="en-contact">
+        <h2><span class="num">07</span>Contact</h2>
+        <p>If you have any questions about this policy, please contact us at:</p>
+        <p><a href="mailto:app.contact001@gmail.com">app.contact001@gmail.com</a></p>
+      </section>
+
+    </section>
+
+    <footer class="pagefoot">
+      <span>© 2026 PINBALL</span>
+      <span><a href="support.html">Support</a> ・ app.contact001@gmail.com</span>
+    </footer>
+
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var ja = document.getElementById('lang-ja');
+    var en = document.getElementById('lang-en');
+    var btnJa = document.getElementById('btn-ja');
+    var btnEn = document.getElementById('btn-en');
+
+    function show(lang) {
+      var isJa = lang === 'ja';
+      ja.hidden = !isJa;
+      en.hidden = isJa;
+      btnJa.setAttribute('aria-pressed', String(isJa));
+      btnEn.setAttribute('aria-pressed', String(!isJa));
+      try { localStorage.setItem('foldnote-privacy-lang', lang); } catch (e) {}
+    }
+
+    btnJa.addEventListener('click', function () { show('ja'); });
+    btnEn.addEventListener('click', function () { show('en'); });
+
+    var saved = null;
+    try { saved = localStorage.getItem('foldnote-privacy-lang'); } catch (e) {}
+
+    if (saved === 'en') {
+      show('en');
+    } else if (!saved && /^en/i.test(navigator.language || '')) {
+      show('en');
+    }
+  })();
+</script>
